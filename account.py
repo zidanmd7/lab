@@ -1,31 +1,46 @@
 class Account:
 
 
-    '''This sets the balance and name'''
-    def __init__(self, name):
+
+    def __init__(self, name: str) -> None:
+        """Funtion to set up account object.
+        :param name: Account name
+        """
         self.__name = name
         self.__balance = 0
 
 
 
-    '''This will check for the money added and check wether it is a correct amount or not'''
-    def deposit(self, amount):
+    def deposit(self, amount) -> bool:
+        """
+        Funtion to add money to the account.
+        :param amount: Amount to add to balance
+        """
         if amount <= 0:
             return False
         self.__balance += amount
         return True
 
-    '''This checks the money taken out and if it is less than the balance or 0'''
-    def withdraw(self, amount):
+    def withdraw(self, amount) -> bool:
+        """
+        Funtion to withdraw/take out money from the account.
+        :param amount: Amount to deduct from total balance
+        """
         if amount <= 0 or amount > self.__balance:
             return False
         self.__balance -= amount
         return True
 
-    '''this shows the balance of the account'''
-    def account_balance(self):
+    def account_balance(self) -> float:
+        """
+        Funtion to show the total amount of the balance.
+        :return: The total balance of the account
+        """
         return self.__balance
 
-    '''this shows the name of the accound'''
-    def account_name(self):
+    def account_name(self) -> str:
+        """
+        Funtion to show the name of the account holder
+        :return: Account name
+        """
         return self.__name
